@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from .forms import *
 
 # Create your views here.
 
@@ -18,4 +20,18 @@ def charts(request):
 
 def forms(request):
 
-    return render(request, 'dashboard/forms.html')
+    if request.method == 'POST':
+        form = ProductForms(request.POST, request.FILES)
+        if form.is_valid():
+            product_item = form.save(commit=False)
+            product_item.save()
+
+            return redirect('/forms/')
+    else:
+        form = ProductForms()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'dashboard/forms.html', context)
