@@ -1,6 +1,12 @@
+from django.views.generic import ListView
 from django.shortcuts import render
 
+from dashboardApp.models import *
 # Create your views here.
 
-def stores(request):
-    return render(request, 'dashboard/tables.html')
+
+class Stores(ListView):
+    model = Product
+    template_name = 'store/store.html'
+
+
