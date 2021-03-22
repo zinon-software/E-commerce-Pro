@@ -5,13 +5,41 @@ from .forms import *
 # Create your views here.
 
 def dashboard(request):
+    shippingOrder = ShippingAddress.objects.order_by('-id')
+    Items = OrderItem.objects.all()
+    the_sales = sum([item.get_total for item in Items])
 
-    return render(request, 'dashboard/index.html')
+    context = {
+        'shippingOrder': shippingOrder,
+        'cartItems': shippingOrder.count(),
+        'customer': Customer.objects.all().count(),
+        'Items': Items,
+        'the_sales': the_sales,
+
+    }
+
+    return render(request, 'dashboard/index.html', context)
 
 
-def tables(request):
+def tables(request, order):
+    orders = OrderItem.objects.all()
+    filterOrder = orders.filter(order=order)
 
-    return render(request, 'dashboard/tables.html')
+    address = ShippingAddress.objects.all()
+    filterAddress = address.filter(order=order)
+
+    total = sum([item.get_total for item in filterOrder])
+
+    Items = sum([item.quantity for item in filterOrder])
+
+    context = {
+        'filterOrder': filterOrder,
+        'filterAddress': filterAddress,
+        'total': total,
+        'Items': Items,
+    }
+
+    return render(request, 'dashboard/tables.html', context)
 
 def charts(request):
 
@@ -19,7 +47,6 @@ def charts(request):
 
 
 def forms(request):
-
     if request.method == 'POST':
         form = ProductForms(request.POST, request.FILES)
         if form.is_valid():

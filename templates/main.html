@@ -25,6 +25,10 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+
   </head>
   <body>
     <div class="page">
@@ -126,7 +130,7 @@
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
             <li class="{% block active %}{% endblock active%}"><a href="{% url 'dashboard' %}"> <i class="icon-home"></i>Home </a></li>
-            <li class="{% block active_tables %}{% endblock active_tables%}"><a href="{% url 'tables' %}"> <i class="icon-grid"></i>Tables </a></li>
+            <li class="{% block active_tables %}{% endblock active_tables%}"><a href="{% url 'tables' 1 %}"> <i class="icon-grid"></i>Tables </a></li>
             <li class="{% block active_charts %}{% endblock active_charts%}"><a href="{% url 'charts' %}"> <i class="fa fa-bar-chart"></i>Charts </a></li>
             <li class="{% block active_forms %}{% endblock active_forms%}"><a href="{% url 'forms' %}"> <i class="icon-padnote"></i>Forms </a></li>
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
