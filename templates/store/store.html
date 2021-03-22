@@ -1,4 +1,4 @@
-{% extends 'main.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 
@@ -6,10 +6,12 @@
 
 {% block content %}
     <br>
+    {#    -------------------------CSS--------------#}
     <link rel="stylesheet"
           href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
           crossorigin="anonymous"/>
+
     <style type="text/css">
     .product-grid{
     font-family: 'Poppins', sans-serif;
@@ -165,10 +167,16 @@
     bottom: 8px;
 }
 @media screen and (max-width:1200px){
-    .product-grid{ margin: 0 0 30px; }
+.product-grid{ margin: 0 0 30px; }
 }
+
+    section{
+        padding: 10px;
+    }
     </style>
 
+    {#    -------------------------HTML--------------#}
+    <section>
     <div class="row">
         {% for item in object_list %}
             <div class="col-md-3 col-sm-6">
@@ -201,35 +209,11 @@
                     </div>
                 </div>
             </div>
-
         {% endfor %}
         <br>
     </div>
+    <br>
+    </section>
+
 {% endblock %}
 
-
-
-
-<section class="text-center mb-4">
-        <div class="container">
-            <div class="row">
-                {% for item in object_list %}
-                    <div class="col-lg-3">
-                        <img src="{{item.imageURL}}" class="card-img-top" height="240">
-                        <br>
-                        <small><h6 align="center"><strong>${{ item.price|floatformat:2 }}</strong></h6></small>
-                        <div class="box-element product">
-                            <h6 style="float: right"><strong>{{ item.name }}</strong></h6>
-                            <hr>
-                            <button data-product="{{ item.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">
-                                Add to Cart
-                                <i class="fas fa-shopping-cart ml-3"></i>
-                            </button>
-                            <a class="btn btn-outline-success" style="float: contour" href="#">View</a>
-                        </div>
-                        <br>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
