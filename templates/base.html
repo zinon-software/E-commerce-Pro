@@ -75,6 +75,9 @@
         }
         console.log('Cart:', cart)
     </script>
+      <!-- script add to cart -->
+
+
 
     <style type="text/css">
         #cart-icon{
@@ -199,9 +202,8 @@
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
             <li class="{% block active %}{% endblock active%}"><a href="{% url 'stores' %}"> <i class="icon-home"></i>Home </a></li>
-            <li class="{% block active_tables %}{% endblock active_tables%}"><a href="{% url 'cart' %}"> <i class="icon-grid"></i>Cart </a></li>
-            <li class="{% block active_charts %}{% endblock active_charts%}"><a href="{% url 'checkout' %}"> <i class="fa fa-bar-chart"></i>Checkout </a></li>
-            <li class="{% block active_forms %}{% endblock active_forms%}"><a href="{% url 'forms' %}"> <i class="icon-padnote"></i>Forms </a></li>
+            <li class="{% block active_tables %}{% endblock active_tables%}"><a href="{% url 'cart' %}"> <i class="icon-interface-windows"></i>Cart </a></li>
+            <li class="{% block active_charts %}{% endblock active_charts%}"><a href="{% url 'checkout' %}"> <i class="icon-padnote"></i>Checkout </a></li>
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="#">Page</a></li>
