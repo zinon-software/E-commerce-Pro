@@ -25,7 +25,7 @@ SECRET_KEY = '%3*fw!%s$wdn882s2vi58d9^)%^ga%=y@h+2398)$l0%(h)q&z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://mutajari.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
@@ -134,7 +134,7 @@ STATICFILES_DIRS=[
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
+django_heroku.settings(locals())
 
 if os.getcwd() == '/app':
     import dj_database_url
