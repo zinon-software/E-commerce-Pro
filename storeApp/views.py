@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from django.utils import timezone
 from django.views.generic import ListView
 
 from dashboardApp.models import *
 from .utils import cookieCart, cartData, guestOrder
 
+from django.utils import timezone
 from django.http import JsonResponse
 import json
 import datetime
